@@ -3,6 +3,7 @@
   --color-primary: #5ca5a5;
   --color-green-900: #2b3939;
   --color-primary-10: rgba(92, 165, 165, 1);
+  --color-primary-1: rgba(92, 165, 165, 0.1);
   --color-gray: #7c8f8f;
   --color-white-lght: rgba(255, 255, 255, 1);
   --color-text: rgba(43, 57, 57, 1);
@@ -10,6 +11,11 @@
 
   /* box shadow */
   --shadow-card: 0 15px 20px -5px #0d718226;
+}
+@layer base {
+  button {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {

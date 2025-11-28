@@ -1,4 +1,4 @@
-function Item({ obj }) {
+function Item({ obj, setSkill }) {
   const {
     image,
     title,
@@ -11,6 +11,15 @@ function Item({ obj }) {
     isFeatured,
     id,
   } = obj;
+  function filtredFn(s) {
+    setSkill((prev) => {
+      if (prev.includes(s)) {
+        return prev;
+      } else {
+        return [...prev, s];
+      }
+    });
+  }
   return (
     <li>
       <div
@@ -20,7 +29,7 @@ function Item({ obj }) {
       >
         <img
           src={image}
-          alt=""
+          alt={title}
           width={88}
           height={88}
           className="max-md:absolute max-md:mt-[-50px] max-md:w-12 max-md:left-14"
@@ -57,14 +66,15 @@ function Item({ obj }) {
         {/* skills */}
         <div className="ml-auto flex items-center">
           <ul className="flex gap-4 max-lg:flex max-lg:flex-wrap">
-            {skills.map((s) => {
+            {skills.map((s, i) => {
               return (
-                <li
-                  key={id}
-                  className="bg-skills text-primary py-2 px-2.5 tracking-[-0.12px] font-bold rounded-sm flex items-center cursor-pointer hover:bg-primary hover:text-white time duration-300 ease-in-out"
+                <button
+                  onClick={() => filtredFn(s)}
+                  key={i + 1}
+                  className="focus:bg-primary focus:text-white bg-skills text-primary py-2 px-2.5 tracking-[-0.12px] font-bold rounded-sm flex items-center cursor-pointer hover:bg-primary hover:text-white time duration-300 ease-in-out"
                 >
                   {s}
-                </li>
+                </button>
               );
             })}
           </ul>
