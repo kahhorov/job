@@ -1,1 +1,1 @@
-export const BASE_URL = "http://localhost:5000/jobs";
+export const BASE_URL = "http://serverjson-kwot.onrender.com/jobs";
